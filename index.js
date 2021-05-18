@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 
 	}
 
-})
+}) // end of middleware
 
 // main
 app.get('/', (req, res) => {
