@@ -68,9 +68,9 @@ npm -v
 **PM2 buyruqlari:**
 
 ```bash
-pm2 status // holatni ko'rsatadi
-pm2 restart appname || app_id // loyihani qayta ishga tushiradi
-pm2 stop app // loyihani chopadi
+pm2 status # holatni ko'rsatadi
+pm2 restart appname || app_id # loyihani qayta ishga tushiradi
+pm2 stop app # loyihani chopadi
 ```
 
 ### Setup Firewall
@@ -93,7 +93,7 @@ sudo nano /etc/nginx/sites-available/default
 
 Server blokining Location qismiga quyidagilarni qo'shamiz:
 
-```markdown
+```bash
 server_name domennomi.com www.domennomi.com;
 
 location / {
@@ -108,10 +108,24 @@ location / {
 
 NGINX holatini tekshiramiz va qayta ishga tushiramiz
 
-```markdown
+```bash
 # Check NGINX config
 sudo nginx -t
 
 # Restart NGINX
 sudo service nginx restart
+```
+
+### LetsEncrypt dan SSL sertifikatni o'rnatish
+
+  
+
+```bash
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+
+# Only valid for 90 days, test the renewal process with
+certbot renew --dry-run
 ```
